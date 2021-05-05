@@ -85,7 +85,7 @@ _lazy_import('sage.coding.code_constructions',
          'ExtendedQuadraticResidueCode', 'from_parity_check_matrix',
          'QuadraticResidueCode', 'QuadraticResidueCodeEvenPair',
          'QuadraticResidueCodeOddPair', 'random_linear_code',
-         'ToricCode', 'WalshCode'])
+         'ToricCode', 'WalshCode', 'from_defining_set'])
 
 _lazy_import('sage.coding.subfield_subcode', 'SubfieldSubcode')
 _lazy_import('sage.coding.extended_code', 'ExtendedCode')

@@ -786,3 +786,24 @@ def WalshCode(m):
     - :wikipedia:`Walsh_code`
     """
     return LinearCode(walsh_matrix(m), d=2**(m - 1))
+
+def from_defining_set(F, S):
+    r"""
+    Generate a linear code over the prime subfield of `F` whose elements are the
+    element-wise traces of linear multiples of the given vector of elements `S`.
+
+    INPUT:
+
+    - ``F`` -- finite field
+
+    - ``S`` -- iterator containing elements of ``F``
+    """
+    if (F.is_prime_field()):
+        return LinearCode(matrix(S))
+    degree = F.degree()
+    var = F.gen()
+    elements = [
+        [(x * var**i).trace() for x in S]
+        for i in range(degree)
+    ]
+    return LinearCode(matrix(elements))
