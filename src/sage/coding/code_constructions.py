@@ -800,10 +800,9 @@ def from_defining_set(F, S):
     """
     if (F.is_prime_field()):
         return LinearCode(matrix(S))
-    degree = F.degree()
-    var = F.gen()
+    V, from_V, to_V = F.vector_space(map=True)
     elements = [
-        [(x * var**i).trace() for x in S]
-        for i in range(degree)
+        [(from_V(b) * x).trace() for x in S]
+        for b in V.basis()
     ]
     return LinearCode(matrix(elements))
